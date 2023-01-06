@@ -1,1 +1,1 @@
-# health-data-quality-workshop
+# Calidad de Datos en Salud
