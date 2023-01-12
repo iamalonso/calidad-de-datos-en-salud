@@ -8,6 +8,7 @@ connection_details = createConnectionDetails(
   server = "SERVIDOR/BASE DE DATOS",
   user = "USUARIO",
   password = "CONTRASENA",
+  port = "PUERTO",
   pathToDriver = "RUTA AL DRIVER PSQL")
 
 # Para leer la consulta desde un archivo .sql
