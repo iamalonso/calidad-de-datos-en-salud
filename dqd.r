@@ -4,7 +4,7 @@ remotes::install_github("OHDSI/DataQualityDashboard")
 
 # Librerias
 library(DatabaseConnector)
-library(Achilles)
+library(DataQualityDashboard)
 
 # Rellenar con los detalles de conexión
 connectionDetails <- DatabaseConnector::createConnectionDetails(
@@ -12,16 +12,9 @@ connectionDetails <- DatabaseConnector::createConnectionDetails(
     user = " ", 
     password = " ", 
     server = " ", 
-    #port = "", 
+    port = "", 
     pathToDriver = "Ruta hacia el driver")
 
-# Ejecutar ACHILLES
-achilles(connectionDetails = connectionDetails,
-         cdmDatabaseSchema = " ",
-         resultsDatabaseSchema = "",
-         cdmVersion="5.4",
-         outputFolder = "/workdir",
-         smallCellCount=0)
 
 
 cdmDatabaseSchema <- " " # Nombre esquema del cdm
@@ -100,9 +93,9 @@ DataQualityDashboard::writeJsonResultsToTable(connectionDetails = connectionDeta
 
 
 DataQualityDashboard::viewDqDashboard(
-  jsonPath = "~/output/results.json"
+  jsonPath = "results.json"
 )
 
-jsonPath = file.path(getwd(), outputFolder, cdmSourceName, outputFile, cdmSourceName)
+#jsonPath = file.path(getwd(), outputFolder, cdmSourceName, outputFile, cdmSourceName)
 
 checks = DataQualityDashboard::listDqChecks(cdmVersion = "5.4")
